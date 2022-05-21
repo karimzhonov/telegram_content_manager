@@ -8,7 +8,7 @@ from project.manager import tasks
 async def on_startup(_):
     asyncio.create_task(tasks.start())
 
-    dp.bot.set_my_commands([
+    await dp.bot.set_my_commands([
         types.BotCommand("start", "Запустить бота"),
         types.BotCommand("help", "Вывести справку"),
     ])
