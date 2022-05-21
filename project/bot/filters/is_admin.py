@@ -1,6 +1,6 @@
 from aiogram import types
 from aiogram.dispatcher.filters import BoundFilter
-from project.settings import ADMINS
+from project.bot.settings import ADMINS
 
 
 class IsAdminFilter(BoundFilter):

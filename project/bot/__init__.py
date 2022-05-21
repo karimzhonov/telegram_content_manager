@@ -1,6 +1,6 @@
 from aiogram import Bot, Dispatcher, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
-from project.settings import BOT_TOKEN
+from project.bot.settings import BOT_TOKEN
 
 
 dp = Dispatcher(
