@@ -1,6 +1,6 @@
 import os
 
-CHANNEL_ID = -624468593  # -1001538746077
+CHANNEL_ID = -1001538746077  # -624468593
 BASE_DIR = os.getcwd()
 MEDIA_DIR = os.path.join(BASE_DIR, 'images')
 CHANNEL_NAME = 'More Mebel'
