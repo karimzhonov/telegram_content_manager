@@ -4,7 +4,7 @@ from project.bot.keyboards import admin_menu as keyboard
 
 
 async def admin_menu(msg):
-    text = f'Hello, {msg.from_user.full_name}\nThis is admin panel'
+    text = f'Здравствуйте, {msg.from_user.full_name}.\nЭто панель администратора.\n Здесь вы можете опубликовать сообщение на канале.'
     if isinstance(msg, types.Message):
         await msg.answer(text, reply_markup=keyboard)
     elif isinstance(msg, types.CallbackQuery):

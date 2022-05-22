@@ -13,7 +13,7 @@ from project.manager.tasks.task_send_content import task_send_content
 
 
 async def click_post_content_button(call: types.CallbackQuery, state: FSMContext):
-    text = 'Send Photo for post'
+    text = 'Отправте фото для публикации'
     await state.update_data(bot_message_id=call.message.message_id)
     await Session.photo.set()
     await call.message.delete_reply_markup()
@@ -51,13 +51,13 @@ async def post_message_to_channel(call: types.CallbackQuery, state: FSMContext):
     # send to chanel
     await task_send_content(data['photo'], data['text'])
     # Response to admin
-    text = 'Message posted'
+    text = 'Сообщение опубликовано'
     await call.message.delete()
     await dp.bot.send_message(call.message.chat.id, text, reply_markup=admin_menu)
 
 
 async def edit_message_post(call: types.CallbackQuery, state: FSMContext):
-    text = 'Enter text'
+    text = 'Введите текст'
     await Session.edit_text.set()
     await call.message.delete()
     msg = await dp.bot.send_message(call.message.chat.id, text)

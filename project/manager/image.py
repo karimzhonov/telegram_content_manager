@@ -11,7 +11,6 @@ def get_random_image() -> Image.Image:
     return Image.open(image_path)
 
 
-
 def paste_ico_to_image(image: Image.Image) -> Image.Image:
     ico_path = os.path.join(settings.BASE_DIR, 'ico.jpg')
     (height, width) = image.size
