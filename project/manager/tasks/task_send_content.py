@@ -9,9 +9,6 @@ from project.manager.image import get_random_image, paste_ico_to_image
 async def task_send_content(content=None, text=CHANNEL_TEXT):
     if content is None:
         content = get_random_image()
-    if not isinstance(content, Image.Image):
-        content = io.BytesIO(content)
-        content = Image.open(content)
     content = paste_ico_to_image(content)
 
     with io.BytesIO() as buf:

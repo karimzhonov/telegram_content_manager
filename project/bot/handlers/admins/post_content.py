@@ -10,6 +10,7 @@ from project.messages import CHANNEL_TEXT
 from project.manager.settings import MEDIA_DIR
 from project.bot.keyboards import admin_menu, post_keyboard
 from project.manager.tasks.task_send_content import task_send_content
+from project.manager.image import paste_ico_to_image
 
 
 async def click_post_content_button(call: types.CallbackQuery, state: FSMContext):
@@ -28,6 +29,10 @@ async def sended_photo_for_post(msg: types.Message, state: FSMContext):
     await dp.bot.delete_message(msg.chat.id, data['bot_message_id'])
     with io.BytesIO() as buf:
         await photo.download(destination_file=buf)
+        content = buf.getvalue()
+        buf.truncate(0)
+        content = paste_ico_to_image(content)
+        content.save(buf, 'PNG')
         content = buf.getvalue()
     # Send message
     text = CHANNEL_TEXT
