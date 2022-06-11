@@ -1,4 +1,4 @@
-import os
+import os, io
 import random
 from PIL import Image, ImageDraw, ImageFont
 from project.manager import settings
@@ -11,7 +11,10 @@ def get_random_image() -> Image.Image:
     return Image.open(image_path)
 
 
-def paste_ico_to_image(image: Image.Image) -> Image.Image:
+def paste_ico_to_image(image) -> Image.Image:
+    if not isinstance(image, Image.Image):
+        image = io.BytesIO(image)
+        image = Image.open(image)
     ico_path = os.path.join(settings.BASE_DIR, 'ico.jpg')
     (height, width) = image.size
     # Open Ico and resize
