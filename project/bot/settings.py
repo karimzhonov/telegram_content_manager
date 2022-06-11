@@ -1,2 +1,4 @@
-BOT_TOKEN = '5201322204:AAHQWkxesObLqrC42-G_dE8uaiC_SldX7Yw'
-ADMINS = [654147050, 534272660]
+import os
+
+BOT_TOKEN = os.environ.get('BOT_TOKEN')
+ADMINS = [int(admin) for admin in os.environ.get('ADMINS').split(';')]

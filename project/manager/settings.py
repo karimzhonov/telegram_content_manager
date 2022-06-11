@@ -1,6 +1,7 @@
 import os
 
-CHANNEL_ID = -1001538746077  # -624468593
+SCHEDUALE_ENABLE = bool(os.environ.get('SCHEDUALE_ENABLE'))
+CHANNEL_ID = int(os.environ.get('CHANNEL_ID'))
 BASE_DIR = os.getcwd()
 MEDIA_DIR = os.path.join(BASE_DIR, 'images')
 CHANNEL_NAME = 'More Mebel'
